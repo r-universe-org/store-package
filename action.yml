@@ -1,0 +1,37 @@
+inputs:
+  REPO_URL: 
+    description: 'Upstream repository'
+  REPO_COMMIT: 
+    description: 'Upstream commit'
+  JOB_STATUS: 
+    description: 'Build success status'
+  DISTRO: 
+    description: 'Operating system'
+  PACKAGE: 
+    description: 'Name of the package'
+  VERSION: 
+    description: 'Version of the package'
+  COMMIT_TIMESTAMP: 
+    description: 'Date of last commit'
+  SYSDEPS: 
+    description: 'System dependencies for package'
+  FILE: 
+    description: 'Filename to upload'
+  TARGET: 
+    description: 'source, win or mac'
+
+runs:
+  using: "composite"
+  steps: 
+    - shell: bash
+      run: |
+        echo "export REPO_URL=${{ inputs.REPO_URL }}" > pkgdata.txt
+        echo "export REPO_COMMIT=${{ inputs.REPO_COMMIT }}" >> pkgdata.txt
+        echo "export JOB_STATUS=${{ inputs.JOB_STATUS }}" >> pkgdata.txt
+        echo "export DISTRO=${{ inputs.DISTRO }}" >> pkgdata.txt
+        echo "export PACKAGE=${{ inputs.PACKAGE }}" >> pkgdata.txt
+        echo "export VERSION=${{ inputs.VERSION }}" >> pkgdata.txt
+        echo "export COMMIT_TIMESTAMP=${{ inputs.COMMIT_TIMESTAMP }}" >> pkgdata.txt
+        echo "export SYSDEPS=${{ inputs.SYSDEPS }}" >> pkgdata.txt
+        echo "export FILE=${{ inputs.FILE }}" >> pkgdata.txt
+        echo "export TARGET=${{ inputs.TARGET }}" >> pkgdata.txt
