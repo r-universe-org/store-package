@@ -25,13 +25,13 @@ runs:
   steps: 
     - shell: bash
       run: |
-        echo "export REPO_URL=${{ inputs.REPO_URL }}" > pkgdata.txt
-        echo "export REPO_COMMIT=${{ inputs.REPO_COMMIT }}" >> pkgdata.txt
-        echo "export JOB_STATUS=${{ inputs.JOB_STATUS }}" >> pkgdata.txt
-        echo "export DISTRO=${{ inputs.DISTRO }}" >> pkgdata.txt
-        echo "export PACKAGE=${{ inputs.PACKAGE }}" >> pkgdata.txt
-        echo "export VERSION=${{ inputs.VERSION }}" >> pkgdata.txt
-        echo "export COMMIT_TIMESTAMP=${{ inputs.COMMIT_TIMESTAMP }}" >> pkgdata.txt
-        echo "export SYSDEPS=${{ inputs.SYSDEPS }}" >> pkgdata.txt
-        echo "export FILE=${{ inputs.FILE }}" >> pkgdata.txt
-        echo "export TARGET=${{ inputs.TARGET }}" >> pkgdata.txt
+        echo "export REPO_URL='${{ inputs.REPO_URL }}'" > pkgdata.txt
+        echo "export REPO_COMMIT='${{ inputs.REPO_COMMIT }}'" >> pkgdata.txt
+        echo "export JOB_STATUS='${{ inputs.JOB_STATUS }}'" >> pkgdata.txt
+        echo "export DISTRO='${{ inputs.DISTRO }}'" >> pkgdata.txt
+        echo "export PACKAGE='${{ inputs.PACKAGE }}'" >> pkgdata.txt
+        echo "export VERSION='${{ inputs.VERSION }}'" >> pkgdata.txt
+        echo "export COMMIT_TIMESTAMP='${{ inputs.COMMIT_TIMESTAMP }}'" >> pkgdata.txt
+        echo "export SYSDEPS='${{ inputs.SYSDEPS }}'" >> pkgdata.txt
+        echo "export FILE='${{ inputs.FILE }}'" >> pkgdata.txt
+        echo "export TARGET='${{ inputs.TARGET }}'" >> pkgdata.txt
