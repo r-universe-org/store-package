@@ -17,6 +17,8 @@ inputs:
     description: 'Date of last commit'
   SYSDEPS: 
     description: 'System dependencies for package'
+  PKGLOGO:
+    description: 'Path to logo of the package'
   FILE: 
     description: 'Filename to upload'
   TARGET: 
@@ -36,5 +38,6 @@ runs:
         echo "VERSION='${{ inputs.VERSION }}'" >> pkgdata.txt
         echo "COMMIT_TIMESTAMP='${{ inputs.COMMIT_TIMESTAMP }}'" >> pkgdata.txt
         echo "SYSDEPS='${{ inputs.SYSDEPS }}'" >> pkgdata.txt
+        echo "PKGLOGO='${{ inputs.PKGLOGO }}'" >> pkgdata.txt
         echo "FILE='${{ inputs.FILE }}'" >> pkgdata.txt
         echo "TARGET='${{ inputs.TARGET }}'" >> pkgdata.txt
