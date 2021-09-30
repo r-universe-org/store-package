@@ -25,6 +25,8 @@ inputs:
     description: 'Base64 JSON encoded vignette data'
   FILE: 
     description: 'Filename to upload'
+  MAINTAINER:
+    description: 'Maintainer from R package'
   TARGET: 
     description: 'source, win or mac'
 
@@ -46,4 +48,5 @@ runs:
         echo "VIGNETTES='${{ inputs.VIGNETTES }}'" >> pkgdata.txt
         echo "PKGLOGO='${{ inputs.PKGLOGO }}'" >> pkgdata.txt
         echo "FILE='${{ inputs.FILE }}'" >> pkgdata.txt
+        echo "MAINTAINER='${{ inputs.MAINTAINER }}'" >> pkgdata.txt
         echo "TARGET='${{ inputs.TARGET }}'" >> pkgdata.txt
