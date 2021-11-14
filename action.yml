@@ -1,8 +1,6 @@
 inputs:
   REPO_URL: 
     description: 'Upstream repository'
-  REPO_COMMIT: 
-    description: 'Upstream commit'
   REPO_REGISTERED: 
     description: 'If package is in the registry (not a remote)'
   MAINTAINER_LOGIN:
@@ -38,7 +36,6 @@ runs:
     - shell: bash
       run: |
         echo "REPO_URL='${{ inputs.REPO_URL }}'" > pkgdata.txt
-        echo "REPO_COMMIT='${{ inputs.REPO_COMMIT }}'" >> pkgdata.txt
         echo "REPO_REGISTERED='${{ inputs.REPO_REGISTERED }}'" >> pkgdata.txt
         echo "MAINTAINER_LOGIN='${{ inputs.MAINTAINER_LOGIN }}'" >> pkgdata.txt
         echo "JOB_STATUS='${{ inputs.JOB_STATUS }}'" >> pkgdata.txt
