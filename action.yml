@@ -23,12 +23,12 @@ inputs:
     description: 'Base64 JSON encoded vignette data'
   FILE: 
     description: 'Filename to upload'
-  MAINTAINER:
-    description: 'Maintainer from R package'
   TARGET: 
     description: 'source, win or mac'
   COMMITINFO:
     description: 'Base64 JSON encoded commit info'
+  MAINTAINERINFO:
+    description: 'Base64 JSON encoded maintainer info'
 
 runs:
   using: "composite"
@@ -44,6 +44,7 @@ runs:
         echo "VERSION='${{ inputs.VERSION }}'" >> pkgdata.txt
         echo "COMMIT_TIMESTAMP='${{ inputs.COMMIT_TIMESTAMP }}'" >> pkgdata.txt
         echo "COMMITINFO='${{ inputs.COMMITINFO }}'" >> pkgdata.txt
+        echo "MAINTAINERINFO='${{ inputs.MAINTAINERINFO }}'" >> pkgdata.txt
         echo "SYSDEPS='${{ inputs.SYSDEPS }}'" >> pkgdata.txt
         echo "VIGNETTES='${{ inputs.VIGNETTES }}'" >> pkgdata.txt
         echo "PKGLOGO='${{ inputs.PKGLOGO }}'" >> pkgdata.txt
