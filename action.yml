@@ -1,57 +1,23 @@
 inputs:
   name:
     required: true
-  REPO_URL: 
-    description: 'Upstream repository'
-  REPO_REGISTERED: 
-    description: 'If package is in the registry (not a remote)'
-  MAINTAINER_LOGIN:
-    description: "GitHub username of maintainer (if known)"
   JOB_STATUS: 
     description: 'Build success status'
   DISTRO: 
-    description: 'Operating system'
-  PACKAGE: 
-    description: 'Name of the package'
-  VERSION: 
-    description: 'Version of the package'
-  COMMIT_TIMESTAMP: 
-    description: 'Date of last commit'
-  SYSDEPS: 
-    description: 'System dependencies for package'
-  PKGLOGO:
-    description: 'Path to logo of the package'
-  VIGNETTES:
-    description: 'Base64 JSON encoded vignette data'
+    description: 'Name of operating system'
   FILE: 
     description: 'Filename to upload'
   TARGET: 
-    description: 'source, win or mac'
-  COMMITINFO:
-    description: 'Base64 JSON encoded commit info'
-  MAINTAINERINFO:
-    description: 'Base64 JSON encoded maintainer info'
+    description: 'One of source, win, mac, wasm'
 
 runs:
   using: "composite"
   steps: 
     - shell: bash
       run: |
-        echo "REPO_URL='${{ inputs.REPO_URL }}'" > pkgdata.txt
-        echo "REPO_REGISTERED='${{ inputs.REPO_REGISTERED }}'" >> pkgdata.txt
-        echo "MAINTAINER_LOGIN='${{ inputs.MAINTAINER_LOGIN }}'" >> pkgdata.txt
-        echo "JOB_STATUS='${{ inputs.JOB_STATUS }}'" >> pkgdata.txt
+        echo "JOB_STATUS='${{ inputs.JOB_STATUS }}'" > pkgdata.txt
         echo "DISTRO='${{ inputs.DISTRO }}'" >> pkgdata.txt
-        echo "PACKAGE='${{ inputs.PACKAGE }}'" >> pkgdata.txt
-        echo "VERSION='${{ inputs.VERSION }}'" >> pkgdata.txt
-        echo "COMMIT_TIMESTAMP='${{ inputs.COMMIT_TIMESTAMP }}'" >> pkgdata.txt
-        echo "COMMITINFO='${{ inputs.COMMITINFO }}'" >> pkgdata.txt
-        echo "MAINTAINERINFO='${{ inputs.MAINTAINERINFO }}'" >> pkgdata.txt
-        echo "SYSDEPS='${{ inputs.SYSDEPS }}'" >> pkgdata.txt
-        echo "VIGNETTES='${{ inputs.VIGNETTES }}'" >> pkgdata.txt
-        echo "PKGLOGO='${{ inputs.PKGLOGO }}'" >> pkgdata.txt
         echo "FILE='${{ inputs.FILE }}'" >> pkgdata.txt
-        echo "MAINTAINER='${{ inputs.MAINTAINER }}'" >> pkgdata.txt
         echo "TARGET='${{ inputs.TARGET }}'" >> pkgdata.txt
     - name: "Save source package"
       uses: actions/upload-artifact@v4
